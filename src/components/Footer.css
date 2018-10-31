@@ -1,0 +1,13 @@
+.Footer {
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  width: 100vw;
+}
+
+.Footer__love-logo {
+  height: 24px;
+  margin: 0 8px;
+  width: 24px;
+}
