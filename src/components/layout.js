@@ -1,68 +1,65 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React, { Fragment, Component } from 'react'
+import Helmet from 'react-helmet'
+import { StaticQuery, graphql } from 'gatsby'
 
-import { rhythm, scale } from '../utils/typography'
+import Header from './Header'
+import Footer from './Footer'
+// import PageBody from './PageBody'
+// import HeroBlock from '../components/HeroBlock'
 
-class Template extends React.Component {
+import './Layout.css'
+
+class Template extends Component {
+  getPageTitle = path => {
+    switch (path) {
+      case '/about':
+        return 'About'
+      case '/blog':
+        return 'Blog'
+      case '/contact':
+        return 'Contact'
+      case '/':
+        return 'Hi!'
+      default:
+        break
+    }
+  }
   render() {
     const { location, children } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
-    let header
+    const className = location.pathname === rootPath ? 'is-homepage' : ''
+    const layoutCN = 'Layout ' + className
+    const pageTitle = this.getPageTitle(location.pathname)
 
-    if (location.pathname === rootPath) {
-      header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-            to={'/'}
-          >
-            Gatsby Starter Blog
-          </Link>
-        </h1>
-      )
-    } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: 'Montserrat, sans-serif',
-            marginTop: 0,
-            marginBottom: rhythm(-1),
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-            to={'/'}
-          >
-            Gatsby Starter Blog
-          </Link>
-        </h3>
-      )
-    }
     return (
-      <div
-        style={{
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
-        {header}
+      <div className={layoutCN}>
+        <StaticQuery
+          query={graphql`
+            query LayoutQuery {
+              site {
+                siteMetadata {
+                  title
+                  description
+                }
+              }
+            }
+          `}
+          render={data => (
+            <Helmet
+              htmlAttributes={{ lang: 'en' }}
+              meta={[
+                {
+                  name: 'description',
+                  content: data.site.siteMetadata.description,
+                },
+              ]}
+              title={`${data.site.siteMetadata.title} | ${pageTitle}`}
+            />
+          )}
+        />
+        <Header className={className} />
         {children}
+        {location.pathname !== rootPath && <Footer />}
       </div>
     )
   }
