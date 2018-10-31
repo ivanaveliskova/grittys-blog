@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import Layout from "../components/layout";
-import HeroBlock from "../components/HeroBlock";
-import PageBody from "../components/PageBody";
+// import Layout from "../components/layout";
+// import HeroBlock from "../components/HeroBlock";
+// import PageBody from "../components/PageBody";
 
 import earthSVG from "../assets/earth.svg";
 import twtitterSVG from "../assets/twitter.svg";
@@ -13,9 +13,11 @@ import "./css/Contact.css";
 class ContactPage extends Component {
   render() {
     return (
-      <Layout location={this.props.location}>
-        <HeroBlock title="Come @ Me" />
-        <PageBody>
+      // <Layout location={this.props.location}>
+        {/* <HeroBlock title="Come @ Me" /> */}
+        {/* <PageBody> */}
+          <div>
+
           <h2 className="Contact__header">Let's be friends!</h2>
           <ul className="Contact__list">
             <li className="Contact__list-item">
@@ -43,8 +45,9 @@ class ContactPage extends Component {
               </a>
             </li>
           </ul>
-        </PageBody>
-      </Layout>
+          </div>
+        {/* </PageBody> */}
+      {/* </Layout> */}
     );
   }
 }

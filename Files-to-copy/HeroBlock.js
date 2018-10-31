@@ -1,9 +1,9 @@
-import React, { Fragment, Component } from "react";
-import "./css/HeroBlock.css";
+import React, { Component } from 'react'
+import './css/HeroBlock.css'
 
 class HeroBlock extends Component {
   render() {
-    const { date, title } = this.props;
+    const { date, title } = this.props
 
     return (
       <div className="HeroBlock">
@@ -15,8 +15,8 @@ class HeroBlock extends Component {
           </Fragment>
         )}
       </div>
-    );
+    )
   }
 }
 
-export default HeroBlock;
+export default HeroBlock

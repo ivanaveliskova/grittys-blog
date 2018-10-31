@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 
-import Header from "./Header";
-import Footer from "./Footer";
+// import Header from "./Header";
+// import Footer from "./Footer";
 
 import "./css/Layout.css";
 
@@ -55,9 +55,9 @@ class Template extends Component {
             />
           )}
         />
-        <Header className={className} />
+        {/* <Header className={className} /> */}
         {children}
-        {location.pathname !== rootPath && <Footer />}
+        {/* {location.pathname !== rootPath && <Footer />} */}
       </div>
     );
   }
