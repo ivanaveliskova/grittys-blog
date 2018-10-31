@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 import { Link, graphql } from "gatsby";
 import get from "lodash/get";
 
-// import Layout from "../components/layout";
+import Layout from "../components/layout";
 // import HeroBlock from "../components/HeroBlock";
 // import PageBody from "../components/PageBody";
 
@@ -17,8 +17,7 @@ class BlogPostTemplate extends Component {
     const { previous, next } = this.props.pageContext;
 
     return (
-      // <Layout location={this.props.location}>
-      <div>
+      <Layout location={this.props.location}>
         <Helmet
           htmlAttributes={{ lang: "en" }}
           meta={[{ name: "description", content: siteDescription }]}
@@ -60,8 +59,7 @@ class BlogPostTemplate extends Component {
           </li>
         </ul>
         {/* </PageBody> */}
-      </div>
-      // </Layout>
+      </Layout>
     );
   }
 }

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link, graphql } from "gatsby";
 import get from "lodash/get";
 
-// import Layout from "../components/layout";
+import Layout from "../components/layout";
 // import HeroBlock from "../components/HeroBlock";
 // import PageBody from "../components/PageBody";
 
@@ -13,10 +13,9 @@ class BlogIndex extends Component {
     const posts = get(this, "props.data.allMarkdownRemark.edges");
 
     return (
-      // <Layout location={this.props.location}>
-      //   <HeroBlock title="My Blog!" />
-      //   <PageBody>
-      <div>
+      <Layout location={this.props.location}>
+        {/* <HeroBlock title="My Blog!" /> */}
+        {/* <PageBody> */}
         {posts.map(({ node }) => {
           const title = get(node, "frontmatter.title") || node.fields.slug;
           return (
@@ -35,9 +34,9 @@ class BlogIndex extends Component {
             </div>
           );
         })}
-      </div>
-      // </PageBody>
-      // </Layout>
+
+        {/* </PageBody> */}
+      </Layout>
     );
   }
 }
