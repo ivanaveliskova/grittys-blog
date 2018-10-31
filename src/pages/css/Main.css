@@ -1,0 +1,12 @@
+.Main {
+}
+
+.Main__header {
+  color: white;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 60px;
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+}
